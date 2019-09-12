@@ -1,5 +1,6 @@
 #pragma once
 #include "gamestatebase.h"
+#include "GameButton.h"
 
 class Sprite2D;
 class Sprite3D;
@@ -20,18 +21,19 @@ public:
 
 	void HandleEvents();
 	void HandleKeyEvents(int key, bool bIsPressed);
-
 	void HandleTouchEvents(int x, int y, bool bIsPressed);
 	void Update(float deltaTime);
 	void Draw();
 
 	
 	void SetNewPostionForBullet();
+	void rollDice();
 
 private:
 
 	std::shared_ptr<Sprite2D> m_BackGround;
 	std::shared_ptr<Text>  m_score;
+	std::list<std::shared_ptr<GameButton>> m_listButton1;
 
 };
 

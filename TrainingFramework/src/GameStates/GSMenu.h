@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 #include "gamestatebase.h"
 #include "GameButton.h"
 
