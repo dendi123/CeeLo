@@ -1,6 +1,8 @@
 #pragma once
 #include "gamestatebase.h"
 #include "GameButton.h"
+#include <time.h>
+#include "Animation.h"
 
 class Sprite2D;
 class Sprite3D;
@@ -27,7 +29,7 @@ public:
 
 	
 	void SetNewPostionForBullet();
-	void rollDice();
+	//void rollDice();
 
 private:
 
