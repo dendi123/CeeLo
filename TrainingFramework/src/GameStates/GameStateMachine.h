@@ -11,6 +11,8 @@ enum StateTypes
 	STATE_Intro,
 	STATE_Menu,
 	STATE_Play,
+	STATE_Roll,
+	STATE_Credits
 };
 
 class GameStateMachine : public CSingleton<GameStateMachine>
@@ -58,3 +60,4 @@ private:
 	bool m_fullscreen;
 };
 
+	

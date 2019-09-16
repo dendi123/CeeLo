@@ -27,31 +27,56 @@ void GSMenu::Init()
 	m_BackGround->SetSize(screenWidth, screenHeight);
 
 	//play button
-	texture = ResourceManagers::GetInstance()->GetTexture("button");
+	texture = ResourceManagers::GetInstance()->GetTexture("button_VAB");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, 275);
-	button->SetSize(200, 50);
+	button->Set2DPosition(screenWidth / 2 + 10, 290); //285
+	button->SetSize(250, 100);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Play);
 		});
 	m_listButton.push_back(button);
 
-	//exit button
-	texture = ResourceManagers::GetInstance()->GetTexture("button_quit");
+	// credit button
+	texture = ResourceManagers::GetInstance()->GetTexture("button_C");
 	button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, 400);
-	button->SetSize(200, 50);
+	button->Set2DPosition(screenWidth / 2 + 10, 405); // 400
+	button->SetSize(250, 100);
+	button->SetOnClick([]() {
+		//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
+	});
+	m_listButton.push_back(button);
+
+
+	// exit button
+	texture = ResourceManagers::GetInstance()->GetTexture("button_Q");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(screenWidth / 2 + 10, 520); //515
+	button->SetSize(250, 100);
 	button->SetOnClick([]() {
 		exit(0);
 		});
 	m_listButton.push_back(button);
 
-
-	//text game title
+	// VAB game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("boton");
-	m_Text_gameName = std::make_shared< Text>(shader, font, "Verus A Bank", TEXT_COLOR::WHILE, 1.0);
-	m_Text_gameName->Set2DPosition(Vector2(screenWidth / 2 - 70, 285));
+	std::shared_ptr<Text> text = std::make_shared<Text>(shader, font, "Verus A Bank", TEXT_COLOR::WHILE, 1.5);
+	text->Set2DPosition(Vector2(screenWidth / 2 - 95, 300)); //295
+	m_listText.push_back(text);
+
+	// Credit game title
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	text = std::make_shared<Text>(shader, font, "Credit", TEXT_COLOR::WHILE, 1.5);
+	text->Set2DPosition(Vector2(screenWidth/2 - 40, 415)); //410
+	m_listText.push_back(text);
+
+	// Quit game title
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	text = std::make_shared<Text>(shader, font, "Quit", TEXT_COLOR::WHILE, 1.5);
+	text->Set2DPosition(Vector2(screenWidth / 2 - 25, 530)); //525
+	m_listText.push_back(text);
+	//m_Text_gameName = std::make_shared< Text>(shader, font, "Verus A Bank", TEXT_COLOR::WHILE, 1.0);
+	
 }
 
 void GSMenu::Exit()
@@ -84,8 +109,11 @@ void GSMenu::HandleTouchEvents(int x, int y, bool bIsPressed)
 {
 	for (auto it : m_listButton)
 	{
-		(it)->HandleTouchEvents(x, y, bIsPressed);
-		if ((it)->IsHandle()) break;
+		if ((it)->IsVisible())
+		{
+			(it)->HandleTouchEvents(x, y, bIsPressed);
+			if ((it)->IsHandle()) break;
+		}
 	}
 }
 
@@ -103,7 +131,15 @@ void GSMenu::Draw()
 	m_BackGround->Draw();
 	for (auto it : m_listButton)
 	{
+		if((it)->IsVisible())
+		{ 
+			it->Draw();
+		}
+	}
+	for (auto it : m_listText)
+	{
 		it->Draw();
 	}
-	m_Text_gameName->Draw();
+	//m_Text_gameName->Draw();
 }
+

@@ -36,41 +36,40 @@ void GSPlay::Init()
 	m_BackGround->Set2DPosition(screenWidth / 2, screenHeight / 2);
 	m_BackGround->SetSize(screenWidth, screenHeight);
 
-	// Roll Button
-	texture = ResourceManagers::GetInstance()->GetTexture("button_2");
-	std::shared_ptr<GameButton> button1 = std::make_shared<GameButton>(model, shader, texture);
-	button1->Set2DPosition(screenWidth / 2, 600);
-	button1->SetSize(200, 50);
-	button1->SetOnClick([](){
-		//Animation::RollDice;
-		
-		int dice1,dice2, dice3;
-		int max = 6, min = 1;
-		static bool runOnce = true;
-
-		time_t t;
-		srand((unsigned)time(&t));
-
-		dice1 = rand() % max + min;
-		dice2 = rand() % max + min;
-		dice3 = rand() % max + min;
-		
-		std::cout << "Roll: " << dice1 << dice2 << dice3;
-
-	/*	if (runOnce)
-		{
-			std::cout << "Test:  " << value;
-			runOnce = false;
-		}*/
+	// Reset Button
+	texture = ResourceManagers::GetInstance()->GetTexture("button_Q");
+	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(screenWidth / 2 - 120, 600);
+	button->SetSize(200, 50);
+	button->SetOnClick([](){
+		//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
 		});
+	m_listButton1.push_back(button);
 
-	m_listButton1.push_back(button1);
+	// Wage Button
+	texture = ResourceManagers::GetInstance()->GetTexture("button_Q");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(screenWidth / 2 + 120, 600); // 400
+	button->SetSize(200, 50);
+	button->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
+	});
+	m_listButton1.push_back(button);
 
-	//text game title
-	//shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	//std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
-	//m_score = std::make_shared< Text>(shader, font, "score: 10", TEXT_COLOR::RED, 1.0);
-	//m_score->Set2DPosition(Vector2(5, 25));
+	// Reset Title
+
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("boton");
+	std::shared_ptr<Text> text = std::make_shared<Text>(shader, font, "Reset", TEXT_COLOR::WHILE, 1.5);
+	text->Set2DPosition(Vector2(screenWidth / 2 - 165, 610));
+	m_listText1.push_back(text);
+
+	// Wager Title
+
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	text = std::make_shared<Text>(shader, font, "Wager", TEXT_COLOR::WHILE, 1.5);
+	text->Set2DPosition(Vector2(screenWidth / 2 + 70, 610));
+	m_listText1.push_back(text);
 
 }
 
@@ -93,7 +92,7 @@ void GSPlay::Resume()
 
 void GSPlay::HandleEvents()
 {
-
+		
 }
 
 void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
@@ -105,11 +104,12 @@ void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 {
 	for (auto it : m_listButton1)
 	{
-		(it)->HandleTouchEvents(x, y, bIsPressed);
-		break;
+		if ((it)->IsVisible())
+		{
+			(it)->HandleTouchEvents(x, y, bIsPressed);
+			if ((it)->IsHandle()) break;
+		}
 	}
-	DWORD dwMousePosition;
-	std::cout << dwMousePosition;
 }
 
 void GSPlay::Update(float deltaTime)
@@ -124,23 +124,17 @@ void GSPlay::Update(float deltaTime)
 void GSPlay::Draw()
 {
 	m_BackGround->Draw();
-	//m_score->Draw();
+	
 	for (auto it : m_listButton1)
+	{
+		if ((it)->IsVisible())
+		{
+			it->Draw();
+		}
+	}
+	for (auto it : m_listText1)
 	{
 		it->Draw();
 	}
 }
-
-void GSPlay::SetNewPostionForBullet()
-{
-}
-
-//void GSPlay::rollDice()
-//{
-//	int value;
-//	int max = 6, min = 1;
-//
-//	value = rand() % (max - min + 1) + min;
-//
-//	std::cout << value;
-//}
+	

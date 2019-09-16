@@ -6,7 +6,7 @@
 GLint screenWidth = 960;
 GLint screenHeight = 640;
 
-
+	
 GLint Init(ESContext* esContext)
 {
 	Application::GetInstance()->Init();
@@ -51,15 +51,15 @@ GLint _tmain(GLint argc, _TCHAR* argv[])
 
 	esRegisterDrawFunc(&esContext, Draw);
 	esRegisterUpdateFunc(&esContext, Update);
-	esRegisterKeyFunc(&esContext, Key);
 	esRegisterMouseFunc(&esContext, Mouse);
 	esMainLoop(&esContext);
+	esRegisterKeyFunc(&esContext, Key);
 
 	//releasing OpenGL resources
 	CleanUp();
 
 	//identifying memory leaks
-	MemoryDump();
+	//MemoryDump();
 	//printf("Press any key...\n");
 	//_getch();
 
