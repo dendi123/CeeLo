@@ -8,6 +8,7 @@
 #include <string.h>
 #include <Sprite2D.h>
 #include <algorithm>
+#include <dos.h>
 
 class GSRoll :
 	public GameStateBase
@@ -31,8 +32,6 @@ public:
 	static int RollDice();
 	static void ConvertToImage(int a, int position);
 	static int CalScore(std::string m_unCalScore);
-
-	//static void BankTurn();
 
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;

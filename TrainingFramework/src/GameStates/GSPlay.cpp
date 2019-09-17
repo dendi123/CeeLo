@@ -137,4 +137,3 @@ void GSPlay::Draw()
 		it->Draw();
 	}
 }
-	

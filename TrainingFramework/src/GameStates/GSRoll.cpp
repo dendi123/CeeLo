@@ -1,19 +1,21 @@
 #include "GSRoll.h"
+#include <dos.h>
 
 extern int screenWidth; //need get on Graphic engine
 extern int screenHeight; //need get on Graphic engine
 
 std::list<std::shared_ptr<Sprite2D>> m_listDice;
+std::vector<int> array;
 
 int turn;
 int bankScore, playerScore;
 int currentBScore, currentPscore;
-int bankAttempts, playerAttempts = 1;
+int bankAttempts = 1, playerAttempts = 1;
 
 //bool isPressed = false;
 //bool runOnce = true;
 
-std::mt19937::result_type seed = time(0);
+
 
 GSRoll::GSRoll()
 {
@@ -27,7 +29,7 @@ GSRoll::~GSRoll()
 
 int GSRoll::CalScore(std::string m_unCalScore)
 {
-	std::vector<int> array;
+
 	int score;
 
 	int num1 = std::count(m_unCalScore.begin(), m_unCalScore.end(), '1');
@@ -43,6 +45,7 @@ int GSRoll::CalScore(std::string m_unCalScore)
 	int num6 = std::count(m_unCalScore.begin(), m_unCalScore.end(), '6');
 	array.push_back(num6);
 
+	//m_listDice 
 	if (num4 == 1 && num5 == 1 && num6 == 1) score = 20;
 	else if (num6 == 3 || num5 == 3 || num4 == 3 || num3 == 3)
 	{
@@ -68,6 +71,8 @@ int GSRoll::CalScore(std::string m_unCalScore)
 int GSRoll::RollDice()
 {
 	//static bool runOnce = true;
+
+	std::mt19937::result_type seed = time(0);
 	std::string unCalscore;
 
 	auto dice_rand = bind(std::uniform_int_distribution<int>(1, 6) , std::mt19937(seed));
@@ -79,16 +84,14 @@ int GSRoll::RollDice()
 	int dice3 = dice_rand();
 	unCalscore.push_back((dice3%10) + '0');
 
-	//std::cout << unCalscore << std::endl;
+std::cout << "Dice :" << dice1 << std::endl;
+std::cout << "Dice :" << dice2 << std::endl;
+std::cout << "Dice :" << dice3 << std::endl;
 
-	//if(runOnce)
-	//{
-		//std::cout << CalScore(unCalscore) << std::endl;
 		ConvertToImage(dice1, 1);
 		ConvertToImage(dice2, 2);
 		ConvertToImage(dice3, 3);
-		//if (CalScore(unCalscore) != 0) runOnce = false;
-	//}
+
 		return CalScore(unCalscore);
 }
 
@@ -145,31 +148,7 @@ void GSRoll::ConvertToImage(int a, int position)
 	m_listDice.push_back(dice);
 }
 
-//void GSRoll::BankTurn()
-//{
-//	int curBScore;
-//	int BAttempts = 1;
-//	while (BAttempts <= 7)
-//	{
-//		curBScore=RollDice();
-//		std::cout << "Bank: " << "No: " << BAttempts << " " << "Value: " << curBScore << std::endl;
-//		if (curBScore == 0)
-//		{
-//			Update(RollDice());
-//			curBScore = RollDice();
-//			std::cout << "Bank: " << "No: " << BAttempts << " " << "Value: " << curBScore << std::endl;
-//			BAttempts++;
-//		}
-//		else
-//		{
-//			std::cout << "Bank: " << "No: " << BAttempts << " " << "Value: " << curBScore << std::endl;
-//			break;
-//		}
-//	}
-//	bankScore = curBScore;
-//	std::cout << "Bank: " << bankScore << std::endl;
-//	++turn;
-//}
+
 void GSRoll::Init()
 {
 
@@ -190,20 +169,46 @@ void GSRoll::Init()
 	button->SetSize(200, 50);
 	button->SetOnClick([]()
 	{
-		RollDice();
+		m_listDice.clear();
+		std::vector<int>().swap(array);
+		if (array.empty()) std::cout << "adad";
 	});
 	m_listButton2.push_back(button);
-
-	//RollDice();
-	//Sleep(3000);
-	//m_listDice.clear();
-	//RollDice();
-
-
 	
+	 if (turn == 0)
+	{
+		 do
+		 {
+			 RollDice();
+			 currentBScore = RollDice();
+			 if (currentBScore != 0)
+			 {
+				 std::cout << "Bank: " << "No: " << bankAttempts << " " << "Value: " << currentBScore << std::endl;
+				 bankScore = currentBScore;
+				 break;
+			 }
+			 else
+			 {
+				 std::cout << "Bank: " << "No: " << bankAttempts << " " << "Value: " << currentBScore << std::endl;
+				 m_listDice.clear();
+				 std::vector<int>().swap(array);
+			 }
+				 if (m_listDice.empty())
+				 {
+					 RollDice();
+					 currentBScore = RollDice();
+					 bankAttempts++;
+				 }
+		 } while (bankAttempts < 7);
+		 turn++;
+	
+	}
+	RollDice();
+	//std::cout << array.capacity();
+	//while (!array.empty()) std::cout << array.capacity();
 }	
 
-void GSRoll::Exit()
+void GSRoll::Exit()	
 {
 }
 
@@ -254,30 +259,7 @@ void GSRoll::Update(float deltaTime)
 		it->Update(deltaTime);
 	}
 
-	if (turn == 0)
-	{
-		do
-		{
-			RollDice();
-			currentBScore = RollDice();
-			if (currentBScore != 0)
-			{
-				std::cout << "Bank: " << "No: " << bankAttempts << " " << "Value: " << currentBScore << std::endl;
-				bankScore = currentBScore;
-				break;
-			}
-			else
-			{
-				m_listDice.clear();
-				std::cout << "Bank: " << "No: " << bankAttempts << " " << "Value: " << currentBScore << std::endl;
-				RollDice();
-				currentBScore = RollDice();
-				bankAttempts++;
-			}
-
-		} while (bankAttempts <= 7);
-		turn++;
-	}
+	//RollDice();
 
 }
 
