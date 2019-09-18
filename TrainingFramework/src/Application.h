@@ -11,8 +11,8 @@ public:
 	void		Init();
 	void		Update( GLfloat deltaTime);
 	void		Render();
-	void		HandleKeyEvent(unsigned char key, bool bIsPresseded);
-	void		HandleTouchEvent(GLint x, GLint y, bool bIsPresseded);
+	void		HandleKeyEvent(unsigned char key, bool bIsPressed);
+	void		HandleTouchEvent(GLint x, GLint y, bool bIsPressed);
 	void		Exit();
 
 private:

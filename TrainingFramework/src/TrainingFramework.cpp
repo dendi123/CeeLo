@@ -1,7 +1,8 @@
 #include "targetver.h"
 #include "Shaders.h"
 #include "Application.h"
-#include "utilities.h" 
+#include "utilities.h"
+#include "time.h"
 
 GLint screenWidth = 960;
 GLint screenHeight = 640;
@@ -9,6 +10,8 @@ GLint screenHeight = 640;
 	
 GLint Init(ESContext* esContext)
 {
+	time_t t;
+	srand(time(&t));
 	Application::GetInstance()->Init();
 	return 0;
 }
@@ -29,9 +32,9 @@ void Key(ESContext* esContext, unsigned char key, bool bbIsPresseded)
 	Application::GetInstance()->HandleKeyEvent(key, bbIsPresseded);
 }
 
-void Mouse(ESContext* esContext, GLint x, GLint y, bool bbIsPresseded)
+void Mouse(ESContext* esContext, GLint x, GLint y, bool bbIsPressed)//bool bbIsPresseded
 {
-	Application::GetInstance()->HandleTouchEvent(x, y, bbIsPresseded);
+	Application::GetInstance()->HandleTouchEvent(x, y, bbIsPressed);
 }
 
 void CleanUp()

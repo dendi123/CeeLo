@@ -17,7 +17,7 @@ public:
 
 	virtual void HandleEvents() = 0;
 	virtual void HandleKeyEvents(int key, bool bIsPressed) = 0;
-	virtual void HandleTouchEvents(int x, int y, bool bIsPressed) = 0;
+	virtual void HandleTouchEvents(int x, int y, bool bIsPresseded) = 0;
 	virtual void Update(float deltaTime ) = 0;
 	virtual void Draw() = 0;
 	/*

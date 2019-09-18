@@ -37,6 +37,10 @@ private:
 	std::shared_ptr<Sprite2D> m_BackGround;
 	std::list<std::shared_ptr<GameButton>>	m_listButton2;
 	std::list<std::shared_ptr<Text>> m_listText2;
+	std::list <std::shared_ptr<Sprite2D>> m_listIcon1;
+
+	std::shared_ptr<Text> m_dendi;
+
 	//std::list<std::shared_ptr<Sprite2D>> m_listDice;
 	//std::shared_ptr<Text>  m_Text_gameName;
 

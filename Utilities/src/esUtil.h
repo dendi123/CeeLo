@@ -47,7 +47,7 @@ public:
    /// Callbacks
    void (ESCALLBACK *drawFunc) ( ESContext * );
    void (ESCALLBACK *keyFunc) ( ESContext *, unsigned char, bool );
-   void (ESCALLBACK *mouseFunc) ( ESContext *, int, int, bool );
+   void (ESCALLBACK *mouseFunc) ( ESContext *, int, int, bool);
    void (ESCALLBACK *updateFunc) ( ESContext *, float deltaTime );
 };
 

@@ -48,15 +48,15 @@ LRESULT WINAPI ESWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	}
 	break;
 
-	case WM_LBUTTONUP:
-	{
-		ESContext* esContext = (ESContext*)(LONG_PTR)GetWindowLongPtr(hWnd, GWL_USERDATA);
-		POINT      point;
-		GetCursorPos(&point);
-		if (esContext && esContext->mouseFunc)
-			esContext->mouseFunc(esContext, (int)point.x - WDpoint.x , (int)point.y - WDpoint.y , false);
-	}
-	break;
+	//case WM_LBUTTONUP:
+	//{
+	//	ESContext* esContext = (ESContext*)(LONG_PTR)GetWindowLongPtr(hWnd, GWL_USERDATA);
+	//	POINT      point;
+	//	GetCursorPos(&point);
+	//	if (esContext && esContext->mouseFunc)
+	//		esContext->mouseFunc(esContext, (int)point.x - WDpoint.x , (int)point.y - WDpoint.y , false);
+	//}
+	//break;
 	case WM_LBUTTONDOWN:
 	{
 		ESContext* esContext = (ESContext*)(LONG_PTR)GetWindowLongPtr(hWnd, GWL_USERDATA);
@@ -64,7 +64,6 @@ LRESULT WINAPI ESWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		GetCursorPos(&point);
 		if (esContext && esContext->mouseFunc)
 			esContext->mouseFunc(esContext, (int)point.x - WDpoint.x , (int)point.y - WDpoint.y , true);
-
 	}
 	break;
 	case WM_MOVE:

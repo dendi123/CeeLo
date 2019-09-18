@@ -21,7 +21,7 @@ void GameButton::SetOnClick(void(*pBtClickFun)())
 	m_pBtClick = pBtClickFun;
 }
 
-void GameButton::HandleTouchEvents(GLint x, GLint y, bool bIsPressed)
+void GameButton::HandleTouchEvents(GLint x, GLint y, bool bisPressed)
 {
 		m_isHandle = false;
 		if ((x > m_Vec2DPos.x  - m_iWidth/2) && (x < m_Vec2DPos.x + m_iWidth / 2) && (y > m_Vec2DPos.y - m_iHeight / 2) && (y < m_Vec2DPos.y + m_iHeight / 2))
@@ -40,6 +40,7 @@ bool GameButton::IsVisible()
 {
 	return m_isVisible;
 }
+
 bool GameButton::HideButton()
 {
 	m_isVisible = false;
@@ -50,6 +51,11 @@ bool GameButton :: ShowButton()
 {
 	m_isVisible = true;
 	return m_isVisible;
+}
+
+bool GameButton::IsPressed()
+{
+	return m_isPressed;
 }
 
 //bool GameButton :: IsPressed()
