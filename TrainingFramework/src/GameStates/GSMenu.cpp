@@ -3,6 +3,8 @@
 extern int screenWidth; //need get on Graphic engine
 extern int screenHeight; //need get on Graphic engine
 
+SoLoud::Soloud* GSMenu::soloud = new SoLoud::Soloud;
+
 GSMenu::GSMenu()
 {
 
@@ -17,6 +19,11 @@ GSMenu::~GSMenu()
 
 void GSMenu::Init()
 {
+	soloud->init();
+	menusong.load("../Data/sfx/xoso.mp3");
+	soloud->play(menusong);
+
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu");
 
@@ -91,7 +98,9 @@ void GSMenu::Pause()
 
 void GSMenu::Resume()
 {
-
+	soloud->init();
+	menusong.load("../Data/sfx/HonAnh.mp3");
+	soloud->play(menusong);
 }
 
 
@@ -112,7 +121,11 @@ void GSMenu::HandleTouchEvents(int x, int y, bool bIsPressed)
 		if ((it)->IsVisible())
 		{
 			(it)->HandleTouchEvents(x, y, bIsPressed);
-			if ((it)->IsHandle()) break;
+			if ((it)->IsHandle())
+			{
+				soloud->deinit();
+				break;
+			}
 		}
 	}
 }

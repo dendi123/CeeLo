@@ -20,6 +20,8 @@ int GSPlay::tempWallet = wallet;
 int GSPlay::pot = 0;
 int GSPlay::tempPot = 0;
 
+SoLoud::Soloud* GSPlay::soloud = new SoLoud::Soloud;
+
 GSPlay::GSPlay()
 {
 	Sleep(1000); 
@@ -39,6 +41,11 @@ int GSPlay::WalletDec(int a)
 
 void GSPlay::Init()
 {
+
+	soloud->init();
+	playsong.load("../Data/sfx/ggbet.mp3");
+	soloud->play(playsong);
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("BG_play1");
 
@@ -65,7 +72,10 @@ void GSPlay::Init()
 	button->Set2DPosition(screenWidth / 2 + 120, 600); // 400
 	button->SetSize(200, 50); // 200 , 50
 	button->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
+		if (pot > 0)
+		{
+			GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
+		}
 	});
 	m_listButton1.push_back(button);
 
@@ -216,7 +226,11 @@ void GSPlay::HandleTouchEvents(int x, int y, bool IsPressed)
 		if ((it)->IsVisible())
 		{
 			(it)->HandleTouchEvents(x, y, IsPressed);
-			if ((it)->IsHandle()) break;
+			if ((it)->IsHandle())
+			{
+				soloud->deinit();
+				break;
+			}
 		}
 	}
 

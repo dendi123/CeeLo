@@ -1,5 +1,7 @@
 #pragma once
 #include "gamestatebase.h"
+#include "soloud.h"
+#include "soloud_wav.h"
 
 class GSIntro :
 	public GameStateBase
@@ -23,5 +25,8 @@ public:
 private:
 	std::shared_ptr<Sprite2D> m_logo;
 	float m_time;
+
+	static SoLoud::Soloud *soloud;
+	SoLoud::Wav introsong;
 };
 

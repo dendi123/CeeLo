@@ -1,6 +1,8 @@
 #include "GSRoll.h"
 #include <dos.h>
 
+
+
 extern int screenWidth; //need get on Graphic engine
 extern int screenHeight; //need get on Graphic engine
 
@@ -18,7 +20,14 @@ bool runOnce = true;
 bool wait = false;
 bool isClicked = false;
 
+int tempPot;
 
+SoLoud::Soloud* GSRoll::soloud = new SoLoud::Soloud;
+
+std::shared_ptr<Text> m_dendi;
+std::shared_ptr<Text> goodLuck;
+
+SoLoud::Wav roll;
 
 GSRoll::GSRoll()
 {
@@ -77,6 +86,8 @@ int dice_rand()
 }
 int GSRoll::RollDice()
 {
+	soloud->init();
+	roll.load("../Data/sfx/rol.mp3");
 	//static bool runOnce = true;
 
 	//std::mt19937::result_type seed = time(0);
@@ -157,10 +168,14 @@ void GSRoll::ConvertToImage(int a, int position)
 	m_listDice.push_back(dice);
 }
 
-
-
 void GSRoll::Init()
 {
+	tempPot = GSPlay::pot;
+
+	//soloud->init();
+	//rollsong.load("../Data/sfx/xoso.mp3");
+	//Resume();
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("BG_play1");
 
@@ -197,6 +212,23 @@ void GSRoll::Init()
 					wait = true;
 				}
 			}
+			if (turn == 3)
+			{
+				turn = -1;
+				tempPot = GSPlay::pot;
+				m_listDice.clear();
+				m_dendi->setText("    Press Roll to Start Game ");
+				goodLuck->setText("");
+
+				wait = false;
+				currentPscore = -1;
+				isClicked = false;
+				runOnce = true;
+				bankAttempts = 0;
+				playerAttempts = 0;
+
+				GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Play);
+			}
 		}
 
 		
@@ -231,27 +263,23 @@ void GSRoll::Init()
 	m_dendi->Set2DPosition(Vector2(565, 40));
 	//m_listText2.push_back(dendi);
 
-//	if (turn == 0)
-//{
-//	do
-//	{
-//		currentBScore = RollDice();
-//		std::cout << "Bank: " << "No: " << bankAttempts << " " << "Value: " << currentBScore << std::endl;
-//		if (currentBScore != 0)
-//		{
-//			break;
-//		}
-//		bankAttempts++;
-//	} while (bankAttempts <= 7);
-//	bankScore = currentBScore;
-//	turn++;
-//}
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	m_wallet = std::make_shared<Text>(shader, font3, "", TEXT_COLOR::WHILE, 1);
+	m_wallet->Set2DPosition(Vector2(50, 570));
 
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	m_pot = std::make_shared<Text>(shader, font3, "", TEXT_COLOR::WHILE, 1);
+	m_pot->Set2DPosition(Vector2(50, 600));
 
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	goodLuck = std::make_shared<Text>(shader, font3, "", TEXT_COLOR::RED, 0.8);
+	goodLuck->Set2DPosition(Vector2(565, 50));
 }	
 
 void GSRoll::Exit()	
 {
+	rollsong.stop();
+	soloud->deinit();
 }
 
 
@@ -262,13 +290,32 @@ void GSRoll::Pause()
 
 void GSRoll::Resume()
 {
-
+	soloud->init();
+	soloud->play(rollsong);
 }
 
 
 void GSRoll::HandleEvents()
 {
-	
+//	if (turn == 2)
+//	{
+//		if (playerScore > bankScore)
+//		{
+//			GSPlay::tempPot = GSPlay::tempPot * 2;
+//			GSPlay::wallet = GSPlay::wallet + GSPlay::tempPot;
+//		}
+//		else if (playerScore < bankScore)
+//		{
+//			GSPlay::wallet = GSPlay::wallet - GSPlay::pot;
+//			GSPlay::pot = GSPlay::tempPot;
+//
+//		}
+//		else
+//		{
+//			GSPlay::wallet = GSPlay::wallet;
+//			GSPlay::pot = GSPlay::tempPot;
+//		}
+//	}
 }
 
 void GSRoll::HandleKeyEvents(int key, bool bIsPressed)
@@ -301,6 +348,16 @@ void GSRoll::Update(float deltaTime)
 		it->Update(deltaTime);
 	}
 
+	std::stringstream stream;
+	stream << GSPlay::wallet;
+	std::string temp = "Wallet: " + stream.str();
+	m_wallet->setText(temp);
+
+	std::stringstream stream1;
+	stream1 << GSPlay::pot;
+	std::string temp1 = "Pot: " + stream1.str();
+	m_pot->setText(temp1);
+
 	if (turn == 0)
 	{
 		do
@@ -320,41 +377,132 @@ void GSRoll::Update(float deltaTime)
 		stream << bankScore; //"My Score is: 20.Good Luck"
 		std::string temp = "  My Score is: " + stream.str() +" . Good Luck ";
 		m_dendi->setText(temp);
+		m_dendi->Set2DPosition(565, 30);
+
+
+		std::string temp1 = " Press Roll to begin your turn ";
+		goodLuck->setText(temp1);
+		goodLuck->Set2DPosition(565, 50);
 	}
 	else if (turn == 1)
 	{
 		//Sleep(1000);
-		std::string temp1 = " Press Roll to begin your turn ";
-		m_dendi->setText(temp1);
-		
 		if (isClicked)
 		{
+			goodLuck->setText("");
+			m_dendi->Set2DPosition(565, 40);
+
 			if (currentPscore != 0)
 			{
 				playerScore = currentPscore;
+
+
+				//std::stringstream stream1;
+				//stream1 << playerScore; //"My Score is: 20.Good Luck"
+				//std::string temp = "  Your Score is: " + stream1.str() + " . Nice Try ";
+				//m_dendi->setText(temp);
+
 				turn++;
-
-				std::stringstream stream1;
-				stream1 << playerScore; //"My Score is: 20.Good Luck"
-				std::string temp = "  Your Score is: " + stream1.str() + " . Nice Try ";
-				m_dendi->setText(temp);
-
 			}
 			else
 			{
-				//std::cout << playerAttempts;
-				std::string temp = " Roll Again. Almost There ";
-				m_dendi->setText(temp);		
-				wait = false;
+				if (playerAttempts < 7)
+				{
+					//std::cout << playerAttempts;
+					std::string temp = " Roll Again. Almost There ";
+					m_dendi->setText(temp);
+					wait = false;
+				}
+				else
+				{
+					std::stringstream stream2;
+					stream2 << 0; //"My Score is: 20.Good Luck"
+					std::string temp1 = "  Your Score is: " + stream2.str() + " . Nice Try ";
+					m_dendi->setText(temp1);
+				}
 			}
 		}
 	}
 
-	else if (turn == 2)
+
+	if (turn == 2)
 	{
-		std::cout << "GG ez";
-	}
+		//Sleep(1000);
+		std::stringstream stream1;
+		std::stringstream stream2;
+
+		stream1 << playerScore;
+		stream2 << bankScore;
+
+		if (playerScore > bankScore)
+		{
+			tempPot = tempPot * 2;
+			GSPlay::wallet = GSPlay::wallet + tempPot;
+			GSPlay::tempWallet = GSPlay::wallet;
+			GSPlay::pot = GSPlay::tempPot;
+
 	
+			std::string temp1 = "Your Score: " + stream1.str() + " > " + "My Score: " + stream2.str();
+			m_dendi->setText(temp1);
+			m_dendi->Set2DPosition(565, 30);
+
+			std::string temp2 = "YOU WON. Roll to Play Again";
+			goodLuck->setText(temp2);
+			goodLuck->Set2DPosition(565, 50);
+
+			//runOnce = true;
+			turn++;
+
+		}
+		else if (playerScore < bankScore)
+		{
+			GSPlay::tempWallet = GSPlay::wallet;
+			GSPlay::pot = GSPlay::tempPot;
+
+			std::string temp1 = "Your Score: " + stream1.str() + " < " + "My Score: " + stream2.str();
+			m_dendi->setText(temp1);
+			m_dendi->Set2DPosition(565, 30);
+
+			std::string temp2 = "YOU LOST. Roll to Play Again";
+			goodLuck->setText(temp2);
+			goodLuck->Set2DPosition(565, 50);
+
+			//runOnce = true;
+			turn++;
+
+				//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Play);
+				//soloud->deinit();
+			//turn++;
+		}
+		else if (playerScore == bankScore)
+		{
+			GSPlay::tempWallet = GSPlay::wallet + tempPot;
+			GSPlay::pot = GSPlay::tempPot;
+
+			std::string temp1 = "Your Score: " + stream1.str() + " = " + "My Score: " + stream2.str();
+			m_dendi->setText(temp1);
+			m_dendi->Set2DPosition(565, 30);
+
+			std::string temp2 = "Roll to Play Again";
+			goodLuck->setText(temp2);
+			goodLuck->Set2DPosition(565, 50);
+
+			//runOnce = true;
+			turn++;
+
+		}
+
+	}
+
+	//std::cout << turn;
+
+	//if (turn == 4)
+	//{
+	//	turn = 0;
+	//}
+	//
+
+
 
 }
 
@@ -380,6 +528,12 @@ void GSRoll::Draw()
 	//{
 	//	it->Draw();
 	//}
+
+	m_wallet->Draw();
+	m_pot->Draw();
 	m_dendi->Draw();
+	goodLuck->Draw();
+
+	
 
 }

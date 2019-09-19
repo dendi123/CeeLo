@@ -1,6 +1,10 @@
 	#pragma once
 #include "gamestatebase.h"
 #include "GameButton.h"
+#include "soloud.h"
+#include "soloud_wav.h"
+
+
 
 class GSMenu :
 	public GameStateBase
@@ -26,6 +30,9 @@ private:
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
 	std::list<std::shared_ptr<Text>> m_listText;
 	//std::shared_ptr<Text>  m_Text_gameName;
+
+	static SoLoud::Soloud* soloud;
+	SoLoud::Wav menusong;
 
 };
 

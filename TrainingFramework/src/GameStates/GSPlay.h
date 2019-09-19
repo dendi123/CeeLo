@@ -3,6 +3,8 @@
 #include "GameButton.h"
 #include <time.h>
 #include "Animation.h"
+#include "soloud.h"
+#include "soloud_wav.h"
 
 class Sprite2D;
 class Sprite3D;
@@ -49,7 +51,8 @@ private:
 	std::shared_ptr<Text> walletText;
 	std::shared_ptr<Text> potText;
 
-
+	static SoLoud::Soloud* soloud;
+	SoLoud::Wav playsong;
 
 	//std::shared_ptr<Text>  m_score;
 
