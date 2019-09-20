@@ -12,7 +12,7 @@ enum StateTypes
 	STATE_Menu,
 	STATE_Play,
 	STATE_Roll,
-	STATE_Credits
+	STATE_Credit
 };
 
 class GameStateMachine : public CSingleton<GameStateMachine>

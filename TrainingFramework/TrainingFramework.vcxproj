@@ -145,7 +145,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Include\AMD;$(SolutionDir)\freetype\include;$(SolutionDir)\Utilities\src;$(projectdir)\src\GameManager;$(projectdir)\src\GameObject;$(projectdir)\src\GameState;$(projectdir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Include;$(SolutionDir)\Include\AMD;$(SolutionDir)\freetype\include;$(SolutionDir)\Utilities\src;$(projectdir)\src\GameManager;$(projectdir)\src\GameObject;$(projectdir)\src\GameState;$(projectdir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -155,7 +155,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;WinMM.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;WinMM.Lib;soloud.lib;soloud_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\Lib\Nvidia;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -260,8 +260,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GameManager\ResourceManagers.cpp" />
+    <ClCompile Include="src\GameObject\Animation.cpp" />
+    <ClCompile Include="src\GameObject\Application.cpp" />
     <ClCompile Include="src\GameObject\Font.cpp" />
     <ClCompile Include="src\GameObject\GameButton.cpp" />
     <ClCompile Include="src\GameObject\Sprite2D.cpp" />
@@ -273,6 +274,7 @@
     <ClCompile Include="src\GameObject\Texture.cpp" />
     <ClCompile Include="src\GameStates\GameStatebase.cpp" />
     <ClCompile Include="src\GameStates\GameStateMachine.cpp" />
+    <ClCompile Include="src\GameStates\GSCredit.cpp" />
     <ClCompile Include="src\GameStates\GSIntro.cpp" />
     <ClCompile Include="src\GameStates\GSMenu.cpp" />
     <ClCompile Include="src\GameStates\GSPlay.cpp" />
@@ -280,10 +282,10 @@
     <ClCompile Include="src\TrainingFramework.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\GameConfig.h" />
     <ClInclude Include="src\GameManager\ResourceManagers.h" />
     <ClInclude Include="src\GameManager\Singleton.h" />
+    <ClInclude Include="src\GameObject\Animation.h" />
     <ClInclude Include="src\GameObject\BaseObject.h" />
     <ClInclude Include="src\GameObject\Font.h" />
     <ClInclude Include="src\GameObject\GameButton.h" />
@@ -296,6 +298,7 @@
     <ClInclude Include="src\GameObject\Texture.h" />
     <ClInclude Include="src\GameStates\GameStatebase.h" />
     <ClInclude Include="src\GameStates\GameStateMachine.h" />
+    <ClInclude Include="src\GameStates\GSCredit.h" />
     <ClInclude Include="src\GameStates\GSIntro.h" />
     <ClInclude Include="src\GameStates\GSMenu.h" />
     <ClInclude Include="src\GameStates\GSPlay.h" />

@@ -1,0 +1,33 @@
+﻿  GSIntro.cpp
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\EGL\eglplatform.h(10): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSIntro.cpp(31,54): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  GameStatebase.cpp
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSIntro.cpp(31,36): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\EGL\eglplatform.h(10): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+soloud_static.lib(soloud_core_basicops.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  0 of 1555 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+soloud_static.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(dr_impl.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_wav.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_wav.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(stb_vorbis.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(stb_vorbis.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_audiosource.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_audiosource.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_basicops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_basicops.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_getters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_getters.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_setters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_setters.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voicegroup.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voicegroup.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_core_voiceops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_core_voiceops.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fader.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fader.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_fft.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_fft.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_file.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_file.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_thread.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_thread.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_winmm.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_winmm.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+soloud_static.lib(soloud_null.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(soloud_null.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+  TrainingFramework.vcxproj -> C:\Users\Huy\Desktop\Programming_lesson_06\\BIN-Nvidia\TrainingFramework.exe

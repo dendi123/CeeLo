@@ -79,6 +79,16 @@ void GSPlay::Init()
 	});
 	m_listButton1.push_back(button);
 
+	// back
+	texture = ResourceManagers::GetInstance()->GetTexture("back");
+	std::shared_ptr<GameButton> m_Back = std::make_shared<GameButton>(model, shader, texture);
+	m_Back->Set2DPosition(40, 40); //285
+	m_Back->SetSize(68, 68);
+	m_Back->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Menu);
+	});
+	m_listButton1.push_back(m_Back);
+
 
 
 

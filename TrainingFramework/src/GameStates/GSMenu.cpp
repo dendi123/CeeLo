@@ -49,7 +49,7 @@ void GSMenu::Init()
 	button->Set2DPosition(screenWidth / 2 + 10, 405); // 400
 	button->SetSize(250, 100);
 	button->SetOnClick([]() {
-		//GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Roll);
+		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Credit);
 	});
 	m_listButton.push_back(button);
 
@@ -84,6 +84,8 @@ void GSMenu::Init()
 	m_listText.push_back(text);
 	//m_Text_gameName = std::make_shared< Text>(shader, font, "Verus A Bank", TEXT_COLOR::WHILE, 1.0);
 	
+	menusong.load("../Data/sfx/xoso.mp3");
+	Resume();
 }
 
 void GSMenu::Exit()
@@ -99,7 +101,6 @@ void GSMenu::Pause()
 void GSMenu::Resume()
 {
 	soloud->init();
-	menusong.load("../Data/sfx/HonAnh.mp3");
 	soloud->play(menusong);
 }
 
@@ -123,6 +124,7 @@ void GSMenu::HandleTouchEvents(int x, int y, bool bIsPressed)
 			(it)->HandleTouchEvents(x, y, bIsPressed);
 			if ((it)->IsHandle())
 			{
+				menusong.stop();
 				soloud->deinit();
 				break;
 			}
