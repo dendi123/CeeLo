@@ -44,7 +44,7 @@ Unlike the **Verus a Bank**, Player have only **3 Attempts** to make a **Valid C
 | Rolls | Description                                                            |
 | ----- | -----------------------------------------------------------------------|
 | 4-5-6 | **Cee-Lo** 4-5-6, 20 points                     |
-| 6-6-6 | **Trips**  Three dice of same number. Higher ones win                  |
+| 6-6-6 | **Trips**  Three dice of same number. Points = number * 3 ( Except 2 = 8 ps, 1 = 7 ps )                  |
 | 5-5-6 | **Point** A pair and a random number, The third dice becomes the point |
 | 1-2-3 | **Dancing Dragons** 1-2-3, -1 point                              |
 | 3-4-6 | **Meaningless** 0 point                                                |
