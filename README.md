@@ -43,10 +43,10 @@ Unlike the **Verus a Bank**, Player have only **3 Attempts** to make a **Valid C
 
 | Rolls | Description                                                            |
 | ----- | -----------------------------------------------------------------------|
-| 4-5-6 | **Cee-Lo** 4-5-6, Automatic win and end the game                       |
+| 4-5-6 | **Cee-Lo** 4-5-6, 20 points                     |
 | 6-6-6 | **Trips**  Three dice of same number. Higher ones win                  |
 | 5-5-6 | **Point** A pair and a random number, The third dice becomes the point |
-| 1-2-3 | **Dancing Dragons** 1-2-3, Automatic lose                              |
+| 1-2-3 | **Dancing Dragons** 1-2-3, -1 point                              |
 | 3-4-6 | **Meaningless** 0 point                                                |
 
 ## II. Game State.
