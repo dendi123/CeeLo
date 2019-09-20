@@ -272,6 +272,11 @@ void GSPlay::Update(float deltaTime)
 	stream1 << pot;
 	std::string temp1 = "Pot: " + stream1.str();
 	potText->setText(temp1);
+
+	if (wallet <= 0)
+	{
+		exit(0);
+	}
 }
 
 void GSPlay::Draw()

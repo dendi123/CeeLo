@@ -1,4 +1,83 @@
-﻿ResourceManagers.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿  cl : Command line warning D9035 : option 'Gm' has been deprecated and will be removed in a future release
+  GSPlay.cpp
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\EGL\eglplatform.h(10): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(55,60): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(55,42): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(61,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(72,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(99,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(115,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(131,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(146,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(174,46): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(181,46): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[6],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[6],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[6],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[6],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(173): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[6],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[6],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[15],TEXT_COLOR,int>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[15],TEXT_COLOR &&,int &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[15],TEXT_COLOR,int>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[15],TEXT_COLOR &&,int &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GSMenu.cpp
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSPlay.cpp(188): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[15],TEXT_COLOR,int>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[15],TEXT_COLOR &&,int &&)' being compiled
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\EGL\eglplatform.h(10): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(33,60): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(33,42): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(39,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(49,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(60,40): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(71,46): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(77,44): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(83,46): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[13],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[13],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[13],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[13],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GSCredit.cpp
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSMenu.cpp(70): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[13],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[13],TEXT_COLOR &&,double &&)' being compiled
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+C:\Users\Huy\Desktop\Programming_lesson_06\Include\EGL\eglplatform.h(10): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSCredit.cpp(33,60): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Generating Code...
+C:\Users\Huy\Desktop\Programming_lesson_06\TrainingFramework\src\GameStates\GSCredit.cpp(33,42): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+ResourceManagers.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
 LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
 soloud_static.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static.lib(dr_impl.obj)' or at 'C:\Users\Huy\Desktop\Programming_lesson_06\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info

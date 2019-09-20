@@ -98,6 +98,8 @@ void GSCredit::Update(float deltaTime)
 	{
 		it->Update(deltaTime);
 	}
+
+	//if
 }
 
 void GSCredit::Draw()
